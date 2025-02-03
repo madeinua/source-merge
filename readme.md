@@ -1,6 +1,6 @@
 # source-merge
 
-[source-merge](https://github.com/your-username/source-merge) is a command-line tool written in TypeScript that recursively scans one or more input folders, processes files with specified extensions, removes comments from the content, and merges the cleaned content into a single output file. It supports multiple programming languages by handling common comment syntaxes.
+[source-merge](https://github.com/your-username/source-merge) is a command-line tool written in TypeScript that recursively scans one or more input folders, processes files with specified extensions, removes comments from the content, and merges the cleaned content into a single output file. It supports multiple programming languages by handling common comment syntaxes. The merged output can be fed into GPT-based tools (such as ChatGPT) to help clarify, improve, or extend your code while preserving context.
 
 ## Features
 
@@ -12,7 +12,6 @@
   - Python, Shell, Ruby (`# ...`)
   - HTML, XML (`<!-- ... -->`)
 - **Dynamic Output Naming:** Generates an output file name with a timestamp, ensuring unique merged files.
-- **AI-Powered Code Assistance:** The merged output can be fed into GPT-based tools (such as [ChatGPT](https://chat.openai.com)) to help clarify, improve, or extend your code while preserving context.
 
 ## Installation
 

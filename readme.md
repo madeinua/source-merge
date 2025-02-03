@@ -20,7 +20,7 @@ The merged output can be fed into GPT-based tools (such as ChatGPT) to help clar
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/source-merge.git
+   git clone https://github.com/madeinua/source-merge.git
    cd source-merge
    ```
 

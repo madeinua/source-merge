@@ -1,0 +1,48 @@
+{
+  "name": "source-merge",
+  "version": "1.0.0",
+  "description": "A command-line tool that merges source files after removing comments and filtering by allowed extensions.",
+  "main": "dist/source-merge.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/source-merge.js",
+    "compile": "npm run build && npm run start",
+    "postinstall": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/madeinua/source-merge.git"
+  },
+  "keywords": [
+    "merge",
+    "source",
+    "cli",
+    "file",
+    "comments",
+    "typescript",
+    "node",
+    "automation",
+    "code-assistance",
+    "gpt",
+    "chatgpt",
+    "ai-context",
+    "ai-assisted-development"
+  ],
+  "author": "Artem Parkhomov <artem@parkhomov.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/madeinua/source-merge/issues"
+  },
+  "homepage": "https://github.com/madeinua/source-merge#readme",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/mime-types": "^2.1.4",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "mime-types": "^2.1.35",
+    "minimist": "^1.2.8",
+    "fs-extra": "^11.1.1"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "excludePatterns": [
+    "node_modules",
+    "vendor",
+    "languages",
+    ".git",
+    ".lock",
+    ".zip",
+    ".cache",
+    ".idea",
+    ".vscode",
+    "package-lock.json"
+  ],
+  "allowedExtensions": [".php", ".js", ".py", ".rb", ".ts"]
+}

@@ -1,6 +1,8 @@
 # source-merge
 
-[source-merge](https://github.com/your-username/source-merge) is a command-line tool written in TypeScript that recursively scans one or more input folders, processes files with specified extensions, removes comments from the content, and merges the cleaned content into a single output file. It supports multiple programming languages by handling common comment syntaxes. The merged output can be fed into GPT-based tools (such as ChatGPT) to help clarify, improve, or extend your code while preserving context.
+[source-merge](https://github.com/your-username/source-merge) is a command-line tool written in TypeScript that recursively scans one or more input folders, processes files with specified extensions, removes comments from the content, and merges the cleaned content into a single output file. It supports multiple programming languages by handling common comment syntaxes.
+
+The merged output can be fed into GPT-based tools (such as ChatGPT) to help clarify, improve, or extend your code while preserving context.
 
 ## Features
 
@@ -8,9 +10,9 @@
 - **Customizable Exclusions:** Exclude specific folders via a configuration file or command-line arguments.
 - **Extension Filtering:** Only process files with allowed extensions (configurable via `config.json` or command-line).
 - **Comment Removal:** Supports comment removal for multiple languages:
-  - JavaScript, PHP, CSS (`/* ... */` and `// ...`)
-  - Python, Shell, Ruby (`# ...`)
-  - HTML, XML (`<!-- ... -->`)
+    - JavaScript, PHP, CSS (`/* ... */` and `// ...`)
+    - Python, Shell, Ruby (`# ...`)
+    - HTML, XML (`<!-- ... -->`)
 - **Dynamic Output Naming:** Generates an output file name with a timestamp, ensuring unique merged files.
 
 ## Installation
@@ -46,8 +48,21 @@ The tool uses a `config.json` file located one directory above the script file. 
 
 ```json
 {
-  "excludePatterns": ["node_modules", ".git"],
-  "allowedExtensions": [".js", ".ts", ".py", ".php", ".css", ".html", ".xml", ".sh", ".rb"]
+  "excludePatterns": [
+    "node_modules",
+    ".git"
+  ],
+  "allowedExtensions": [
+    ".js",
+    ".ts",
+    ".py",
+    ".php",
+    ".css",
+    ".html",
+    ".xml",
+    ".sh",
+    ".rb"
+  ]
 }
 ```
 
@@ -61,14 +76,14 @@ After building, you can run the tool via Node.js. The tool accepts several comma
 - `--input`: **(Required)** Comma-separated list of input folder paths.
 - `--exclude`: Additional comma-separated folder patterns to exclude (merged with those from `config.json`).
 - `--extensions`: Comma-separated list of allowed file extensions (overrides `config.json`).
-- `--output`: Specify the output file name. If omitted, the tool creates one automatically using the format `merged-<timestamp>.txt` inside an `output` folder.
+- `--output`: Output file path (optional). By the default, the script generates a file in the folder "output".
 
 ### Examples
 
 1. **Basic Usage:**
 
    ```bash
-   node dist/index.js --input="src,lib"
+   node dist/source-merge.js --input="src,lib"
    ```
 
    This will merge files from the `src` and `lib` directories using the defaults specified in `config.json`.
@@ -76,18 +91,10 @@ After building, you can run the tool via Node.js. The tool accepts several comma
 2. **Specifying Exclusions and Extensions:**
 
    ```bash
-   node dist/index.js --input="src" --exclude="tests,docs" --extensions=".js,.ts"
+   node dist/source-merge.js --input="src" --exclude="tests,docs" --extensions=".js,.ts"
    ```
 
    This will process only `.js` and `.ts` files from the `src` folder, additionally excluding folders that include "tests" or "docs".
-
-3. **Custom Output File:**
-
-   ```bash
-   node dist/index.js --input="src" --output="./merged/combined.txt"
-   ```
-
-   This writes the merged output into the specified file.
 
 ## How It Works
 
@@ -97,11 +104,11 @@ After building, you can run the tool via Node.js. The tool accepts several comma
 2. **Parsing Arguments:**  
    It uses [minimist](https://www.npmjs.com/package/minimist) to parse command-line arguments, allowing overrides for exclusions and file extensions.
 
-3. **File Processing:**  
-   - Recursively scans the specified input folders.
-   - Skips files or folders based on exclusion patterns.
-   - Reads each file, removes comments based on its extension, and ignores files that become empty after processing.
-   - Prepends a header (using `### <relative-path>`) for each file in the merged output.
+3. **File Processing:**
+    - Recursively scans the specified input folders.
+    - Skips files or folders based on exclusion patterns.
+    - Reads each file, removes comments based on its extension, and ignores files that become empty after processing.
+    - Prepends a header (using `### <relative-path>`) for each file in the merged output.
 
 4. **Output Generation:**  
    The cleaned and merged content is written to the output file, which is either user-specified or auto-generated.
